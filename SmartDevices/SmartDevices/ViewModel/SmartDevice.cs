@@ -9,6 +9,9 @@ namespace SmartDevices.ViewModel
     public class SmartDevice
     {
         public string Name { get; set; }
+
+        public string Type { get; set; }
+
         public int ID { get; set; }
 
         public int dbId { get; set; }

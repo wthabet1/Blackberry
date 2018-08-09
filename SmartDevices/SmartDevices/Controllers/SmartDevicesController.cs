@@ -26,6 +26,7 @@ namespace SmartDevices.Controllers
                 sd.Name = car.Name;
                 sd.ID = ++id;
                 sd.dbId = car.id;
+                sd.Type = car.Type;
                 sd.Location = car.location;
                 if (!String.IsNullOrEmpty(car.location))
                     sd.SensorsState = "Working";
@@ -40,6 +41,7 @@ namespace SmartDevices.Controllers
                 SmartDevice sd = new SmartDevice();
                 sd.Name = fridge.Name;
                 sd.ID = ++id;
+                sd.Type = fridge.Type;
                 sd.dbId = fridge.id;
                 sd.Location = fridge.location;
                 if (!String.IsNullOrEmpty(fridge.location))
