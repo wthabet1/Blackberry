@@ -1,0 +1,58 @@
+﻿@model SmartDevices.Models.Car
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fluidLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fluidLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tirePressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tirePressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.engineTemperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.engineTemperature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

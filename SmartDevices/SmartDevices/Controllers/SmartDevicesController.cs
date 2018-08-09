@@ -23,7 +23,7 @@ namespace SmartDevices.Controllers
             foreach(var car in cars)
             {
                 SmartDevice sd = new SmartDevice();
-                sd.Name = "Smart Car";
+                sd.Name = car.Name;
                 sd.ID = ++id;
                 sd.dbId = car.id;
                 sd.Location = car.location;
@@ -38,7 +38,7 @@ namespace SmartDevices.Controllers
             foreach (var fridge in fridges)
             {
                 SmartDevice sd = new SmartDevice();
-                sd.Name = "Smart Fridge";
+                sd.Name = fridge.Name;
                 sd.ID = ++id;
                 sd.dbId = fridge.id;
                 sd.Location = fridge.location;

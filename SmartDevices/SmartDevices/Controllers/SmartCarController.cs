@@ -27,7 +27,16 @@ namespace SmartDevices.Controllers
         // GET: SmartCar/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                var car = _context.Car.Single(c => c.id == id);
+                return View(car);
+            }
+            catch (Exception e)
+            {
+                //ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: SmartCar/Create
@@ -55,44 +64,71 @@ namespace SmartDevices.Controllers
         // GET: SmartCar/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                var car = _context.Car.Single(c => c.id == id);
+                return View(car);
+            }
+            catch (Exception e)
+            {
+                //ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: SmartCar/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Car modCar)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var carToUpdate = _context.Car.Single(c => c.id == id);
+                    if (TryUpdateModel(carToUpdate))
+                    {
+                        _context.SaveChanges();
+                        return RedirectToAction("Index");
+                    }   
+                }
+                return View(modCar);
             }
             catch
             {
-                return View();
+                return View(modCar);
             }
         }
 
         // GET: SmartCar/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                var car = _context.Car.Single(c => c.id == id);
+                return View(car);
+            }
+            catch
+            {
+                //ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: SmartCar/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Car oldCar)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                var carToDelete = _context.Car.Single(c => c.id == id);
+                _context.Car.Remove(carToDelete);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(oldCar);
             }
         }
     }
