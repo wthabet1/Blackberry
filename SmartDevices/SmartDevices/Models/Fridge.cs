@@ -13,6 +13,8 @@ namespace SmartDevices.Models
 
         public string Name { get; set; }
 
+        public string Type { get { return "Fridge"; } }
+
         [Display(Name = "Temperature")]
         public float temperature { get; set; }
 

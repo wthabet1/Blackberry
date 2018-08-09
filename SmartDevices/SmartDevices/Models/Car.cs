@@ -29,6 +29,8 @@ namespace SmartDevices.Models
 
         public string Name { get; set; }
 
+        public string Type { get { return "Car"; } }
+
         [Display(Name = "Fluid Level")]
         public string fluidLevel { get; set; }
 
