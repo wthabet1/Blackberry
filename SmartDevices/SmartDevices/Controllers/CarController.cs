@@ -49,7 +49,7 @@ namespace SmartDevices.Controllers
             {
                 car.engineTemperature = modCar.engineTemperature;
                 car.fluidLevel = modCar.fluidLevel;
-                car.tirePresure = modCar.tirePresure;
+                car.tirePressure = modCar.tirePressure;
                 car.location = modCar.location;
                 _context.SaveChanges();
             }

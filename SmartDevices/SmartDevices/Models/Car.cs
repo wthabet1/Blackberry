@@ -13,7 +13,7 @@ namespace SmartDevices.Models
 
         public string fluidLevel { get; set; }
 
-        public float tirePresure { get; set; }
+        public float tirePressure { get; set; }
 
         public float engineTemperature { get; set; }
 
