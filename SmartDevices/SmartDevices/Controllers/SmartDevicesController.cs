@@ -17,14 +17,19 @@ namespace SmartDevices.Controllers
         {
             _context = new SmartDeviceContext();
             _lstSmartDevices = new List<SmartDevice>();
+            int id = 0; 
 
             var cars = _context.Car.ToList();
             foreach(var car in cars)
             {
                 SmartDevice sd = new SmartDevice();
                 sd.Name = "Smart Car";
-                sd.ID = car.id;
+                sd.ID = ++id;
                 sd.Location = car.location;
+                if (!String.IsNullOrEmpty(car.location))
+                    sd.SensorsState = "Working";
+                else
+                    sd.SensorsState = "Not working";
                 _lstSmartDevices.Add(sd);
             }
 
@@ -33,8 +38,13 @@ namespace SmartDevices.Controllers
             {
                 SmartDevice sd = new SmartDevice();
                 sd.Name = "Smart Fridge";
-                sd.ID = fridge.id;
+                sd.ID = ++id;
                 sd.Location = fridge.location;
+                if (!String.IsNullOrEmpty(fridge.location))
+                    sd.SensorsState = "Working";
+                else
+                    sd.SensorsState = "Not working";
+
                 _lstSmartDevices.Add(sd);
             }
 
