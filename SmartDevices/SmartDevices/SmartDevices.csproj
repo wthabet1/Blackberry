@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201808091513546_Fix attribute name.Designer.cs">
       <DependentUpon>201808091513546_Fix attribute name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808091956345_Add a name to domain model object.cs" />
+    <Compile Include="Migrations\201808091956345_Add a name to domain model object.Designer.cs">
+      <DependentUpon>201808091956345_Add a name to domain model object.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Fridge.cs" />
@@ -305,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808091513546_Fix attribute name.resx">
       <DependentUpon>201808091513546_Fix attribute name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808091956345_Add a name to domain model object.resx">
+      <DependentUpon>201808091956345_Add a name to domain model object.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

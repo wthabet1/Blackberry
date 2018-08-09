@@ -11,6 +11,8 @@ namespace SmartDevices.Models
         [Key]
         public int id { get; set; }
 
+        public string Name { get; set; }
+
         [Display(Name = "Temperature")]
         public float temperature { get; set; }
 
