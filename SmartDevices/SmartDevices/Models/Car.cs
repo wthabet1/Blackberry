@@ -8,6 +8,22 @@ namespace SmartDevices.Models
 {
     public class Car
     {
+        //public Car()
+        //{
+        //    fluidLevel = string.Empty;
+        //    tirePressure = float.NaN;
+        //    engineTemperature = float.NaN;
+        //    location = string.Empty;
+        //}
+
+        //public Car(Car other)
+        //{
+        //    fluidLevel = other.fluidLevel;
+        //    tirePressure = other.tirePressure;
+        //    engineTemperature = other.engineTemperature;
+        //    location = other.location;
+        //}
+
         [Key]
         public int id { get; set;  }
 

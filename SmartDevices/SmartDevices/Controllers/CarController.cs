@@ -24,43 +24,85 @@ namespace SmartDevices.Controllers
         }
 
         // GET: api/Car/5
-        public Car Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            var car = _context.Car.Single(c => c.id == id);
-            return car;
+            try
+            {
+                var car = _context.Car.Single(c => c.id == id);
+                return Ok(car);
+            }
+            catch (Exception e)
+            {
+                return new System.Web.Http.Results.ResponseMessageResult(
+                                            Request.CreateErrorResponse((HttpStatusCode)500,
+                                            new HttpError(e?.Message + ":" + e?.InnerException?.Message)));
+            }
         }
 
         // POST: api/Car
         [HttpPost]
-        public void Post([FromBody] Car newCar)
+        public string Post([FromBody] Car newCar)
         {
-            if (newCar != null)
+            try
             {
-                _context.Car.Add(newCar);
-                _context.SaveChanges();
+                if (newCar != null)
+                {
+                    _context.Car.Add(newCar);
+                    _context.SaveChanges();
+                    return "New car with id " + newCar.id + " is created";
+                }
+
+                return "New car is not valid.";
+            }
+            catch (Exception e)
+            {
+                return e?.Message + ":" + e?.InnerException?.Message;
             }
         }
 
         // PUT: api/Car/5
-        public void Put(int id, [FromBody] Car modCar)
+        public IHttpActionResult Put(int id, [FromBody] Car modCar)
         {
-            var car = _context.Car.Single(c => c.id == id);
-            if (car != null)
+            try
             {
-                car.engineTemperature = modCar.engineTemperature;
-                car.fluidLevel = modCar.fluidLevel;
-                car.tirePressure = modCar.tirePressure;
-                car.location = modCar.location;
-                _context.SaveChanges();
+                if (modCar != null)
+                {
+                    var car = _context.Car.Single(c => c.id == id);
+                    if (car != null)
+                    {
+                        car = modCar;
+                        _context.SaveChanges();
+                        return Ok(car);
+                    }
+                }
+                return BadRequest();
             }
+            catch (Exception e)
+            {
+                return new System.Web.Http.Results.ResponseMessageResult(
+                                          Request.CreateErrorResponse((HttpStatusCode)500,
+                                          new HttpError(e?.Message + ":" + e?.InnerException?.Message)));
+            }
+
         }
 
         // DELETE: api/Car/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            var car = _context.Car.Single(c => c.id == id);
-            _context.Car.Remove(car);
-            _context.SaveChanges();
+            try
+            {
+                var car = _context.Car.Single(c => c.id == id);
+                _context.Car.Remove(car);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return new System.Web.Http.Results.ResponseMessageResult(
+                                         Request.CreateErrorResponse((HttpStatusCode)500,
+                                         new HttpError(e?.Message + ":" + e?.InnerException?.Message)));
+            }
+
         }
     }
 }
