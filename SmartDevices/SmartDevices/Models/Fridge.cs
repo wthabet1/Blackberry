@@ -11,14 +11,19 @@ namespace SmartDevices.Models
         [Key]
         public int id { get; set; }
 
+        [Display(Name = "Temperature")]
         public float temperature { get; set; }
 
+        [Display(Name = "Ice Level")]
         public string iceLevel { get; set; }
 
+        [Display(Name = "Defrost Alarm")]
         public bool defrostAlarm { get; set; }
 
+        [Display(Name = "Water Leaks")]
         public bool waterLeaks { get; set; }
 
+        [Display(Name = "Location")]
         public string location { get; set; }
     }
 }

@@ -27,12 +27,16 @@ namespace SmartDevices.Models
         [Key]
         public int id { get; set;  }
 
+        [Display(Name = "Fluid Level")]
         public string fluidLevel { get; set; }
 
+        [Display(Name = "Tire Pressure")]
         public float tirePressure { get; set; }
 
+        [Display(Name = "Engine Temperature")]
         public float engineTemperature { get; set; }
 
+        [Display(Name = "Location")]
         public string location { get; set; }
     }
 }

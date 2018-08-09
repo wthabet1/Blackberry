@@ -10,6 +10,9 @@ namespace SmartDevices.ViewModel
     {
         public string Name { get; set; }
         public int ID { get; set; }
+
+        public int dbId { get; set; }
+
         public string Location { get; set; }
 
         [Display(Name = "Sensor State")]
