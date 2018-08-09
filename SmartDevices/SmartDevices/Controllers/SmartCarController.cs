@@ -42,22 +42,25 @@ namespace SmartDevices.Controllers
         // GET: SmartCar/Create
         public ActionResult Create()
         {
-            return View();
+            Car newCar = new Car();
+            return View(newCar);
         }
 
         // POST: SmartCar/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Car newCar)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                _context.Car.Add(newCar);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(newCar);
             }
         }
 
@@ -78,6 +81,7 @@ namespace SmartDevices.Controllers
 
         // POST: SmartCar/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Car modCar)
         {
             try
@@ -116,6 +120,7 @@ namespace SmartDevices.Controllers
 
         // POST: SmartCar/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, Car oldCar)
         {
             try

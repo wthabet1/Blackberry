@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SmartCarController.cs" />
     <Compile Include="Controllers\SmartDevicesController.cs" />
+    <Compile Include="Controllers\SmartFridgeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -273,6 +274,12 @@
     <Content Include="Views\SmartCar\Details.cshtml" />
     <Content Include="Views\SmartCar\Edit.cshtml" />
     <Content Include="Views\SmartCar\Delete.cshtml" />
+    <Content Include="Views\SmartCar\Create.cshtml" />
+    <Content Include="Views\SmartFridge\Index.cshtml" />
+    <Content Include="Views\SmartFridge\Details.cshtml" />
+    <Content Include="Views\SmartFridge\Edit.cshtml" />
+    <Content Include="Views\SmartFridge\Create.cshtml" />
+    <Content Include="Views\SmartFridge\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
