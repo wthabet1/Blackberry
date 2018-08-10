@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Hangfire;
+using System.Threading;
 
 namespace SmartDevices.Controllers
 {
@@ -11,15 +13,19 @@ namespace SmartDevices.Controllers
     {
         private readonly SmartDeviceContext _context;
 
+
         public SmartCarController()
         {
             _context = new SmartDeviceContext();
+
+            //RecurringJob.AddOrUpdate(() => OperateCars(), Cron.Minutely);
         }
 
 
         // GET: SmartCar
         public ActionResult Index()
         {
+            Response.AppendHeader("Refresh", "5");
             var cars = _context.Car.ToList();
             return View(cars);
         }
@@ -32,7 +38,7 @@ namespace SmartDevices.Controllers
                 var car = _context.Car.Single(c => c.id == id);
                 return View(car);
             }
-            catch (Exception e)
+            catch
             {
                 //ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
                 return RedirectToAction("Index");
@@ -72,7 +78,7 @@ namespace SmartDevices.Controllers
                 var car = _context.Car.Single(c => c.id == id);
                 return View(car);
             }
-            catch (Exception e)
+            catch
             {
                 //ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
                 return RedirectToAction("Index");
@@ -93,7 +99,7 @@ namespace SmartDevices.Controllers
                     {
                         _context.SaveChanges();
                         return RedirectToAction("Index");
-                    }   
+                    }
                 }
                 return View(modCar);
             }
@@ -136,5 +142,7 @@ namespace SmartDevices.Controllers
                 return View(oldCar);
             }
         }
+
+       
     }
 }

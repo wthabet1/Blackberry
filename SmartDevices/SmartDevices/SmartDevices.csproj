@@ -51,7 +51,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.20\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -213,6 +222,10 @@
     <Compile Include="Migrations\201808092133306_Add Type to Smart Devices.Designer.cs">
       <DependentUpon>201808092133306_Add Type to Smart Devices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808092359554_Add a hangfire db.cs" />
+    <Compile Include="Migrations\201808092359554_Add a hangfire db.Designer.cs">
+      <DependentUpon>201808092359554_Add a hangfire db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Fridge.cs" />
@@ -329,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808092133306_Add Type to Smart Devices.resx">
       <DependentUpon>201808092133306_Add Type to Smart Devices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808092359554_Add a hangfire db.resx">
+      <DependentUpon>201808092359554_Add a hangfire db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
