@@ -8,22 +8,6 @@ namespace SmartDevices.Models
 {
     public class Car
     {
-        //public Car()
-        //{
-        //    fluidLevel = string.Empty;
-        //    tirePressure = float.NaN;
-        //    engineTemperature = float.NaN;
-        //    location = string.Empty;
-        //}
-
-        //public Car(Car other)
-        //{
-        //    fluidLevel = other.fluidLevel;
-        //    tirePressure = other.tirePressure;
-        //    engineTemperature = other.engineTemperature;
-        //    location = other.location;
-        //}
-
         [Key]
         public int id { get; set;  }
 
@@ -33,6 +17,19 @@ namespace SmartDevices.Models
         {
             get { return "Car"; }
             //set { Type = value; }
+        }
+
+        [Display(Name = "Working?")]
+        public string Status
+        {
+            get
+            {
+                Random rnd = new Random();
+                int intWorkingLevel = rnd.Next(1, 100);
+                if (intWorkingLevel < 25)
+                    return false.ToString();
+                return true.ToString();
+            }
         }
 
         [Display(Name = "Fluid Level")]

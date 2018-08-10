@@ -15,6 +15,19 @@ namespace SmartDevices.Models
 
         public string Type { get { return "Fridge"; } }
 
+        [Display(Name = "Working?")]
+        public string Status
+        {
+            get
+            {
+                Random rnd = new Random();
+                int intWorkingLevel = rnd.Next(1, 100);
+                if (intWorkingLevel < 25)
+                    return false.ToString();
+                return true.ToString();
+            }
+        }
+
         [Display(Name = "Temperature")]
         public float temperature { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SmartDevices.ViewModel.SmartDevice>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Smart Devices";
 }
 
 <h2>Available Smart devices</h2>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SensorsState)
+            @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
     </tr>
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SensorsState)
+            @Html.DisplayFor(modelItem => item.Status)
         </td>
         @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

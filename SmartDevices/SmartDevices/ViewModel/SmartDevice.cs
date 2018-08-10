@@ -18,7 +18,7 @@ namespace SmartDevices.ViewModel
 
         public string Location { get; set; }
 
-        [Display(Name = "Sensor State")]
-        public string SensorsState { get; set; }
+        [Display(Name = "Working?")]
+        public string Status { get; set; }
     }
 }

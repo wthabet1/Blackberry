@@ -19,6 +19,7 @@ namespace SmartDevices.Controllers
         // GET: SmartFridge
         public ActionResult Index()
         {
+            Response.AppendHeader("Refresh", "15");
             var fridges = _context.Fridge.ToList();
             return View(fridges);
         }

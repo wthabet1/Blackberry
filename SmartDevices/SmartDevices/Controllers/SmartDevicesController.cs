@@ -28,10 +28,7 @@ namespace SmartDevices.Controllers
                 sd.dbId = car.id;
                 sd.Type = car.Type;
                 sd.Location = car.location;
-                if (!String.IsNullOrEmpty(car.location))
-                    sd.SensorsState = "Working";
-                else
-                    sd.SensorsState = "Not working";
+                sd.Status = car.Status;
                 _lstSmartDevices.Add(sd);
             }
 
@@ -44,10 +41,7 @@ namespace SmartDevices.Controllers
                 sd.Type = fridge.Type;
                 sd.dbId = fridge.id;
                 sd.Location = fridge.location;
-                if (!String.IsNullOrEmpty(fridge.location))
-                    sd.SensorsState = "Working";
-                else
-                    sd.SensorsState = "Not working";
+                sd.Status = fridge.Status;
 
                 _lstSmartDevices.Add(sd);
             }
@@ -56,79 +50,8 @@ namespace SmartDevices.Controllers
         // GET: SmartDevices
         public ActionResult Index()
         {
+            Response.AppendHeader("Refresh", "15");
             return View(_lstSmartDevices);
-        }
-
-        // GET: SmartDevices/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: SmartDevices/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SmartDevices/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SmartDevices/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: SmartDevices/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SmartDevices/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SmartDevices/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

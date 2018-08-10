@@ -183,8 +183,8 @@ namespace SmartDevices
             //Run this job every egiht hours
             RecurringJob.AddOrUpdate(() => OperateCars(), Cron.HourInterval(8));
 
-            //Run this job every three hours
-            RecurringJob.AddOrUpdate(() => OperateFridges(), Cron.Minutely);
+            //Run this job every three days
+            RecurringJob.AddOrUpdate(() => OperateFridges(), Cron.DayInterval(3));
         }
 
         protected void Application_End(object sender, EventArgs e)

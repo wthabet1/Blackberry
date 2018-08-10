@@ -17,15 +17,13 @@ namespace SmartDevices.Controllers
         public SmartCarController()
         {
             _context = new SmartDeviceContext();
-
-            //RecurringJob.AddOrUpdate(() => OperateCars(), Cron.Minutely);
         }
 
 
         // GET: SmartCar
         public ActionResult Index()
         {
-            Response.AppendHeader("Refresh", "5");
+            Response.AppendHeader("Refresh", "15");
             var cars = _context.Car.ToList();
             return View(cars);
         }
